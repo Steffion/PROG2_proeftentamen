@@ -9,6 +9,13 @@ public abstract class Ship {
 	}
 	
 	public abstract char getTypeShip();
+	
+	public boolean hasSank() {
+		if (hits >= length) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	public void setLength(int length) {
