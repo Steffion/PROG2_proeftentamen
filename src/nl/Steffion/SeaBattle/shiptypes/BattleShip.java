@@ -6,4 +6,8 @@ public class BattleShip  extends Ship {
 	public BattleShip() {
 		setLength(4);
 	}
+	
+	public char getTypeShip() {
+		return 'B';
+	}
 }

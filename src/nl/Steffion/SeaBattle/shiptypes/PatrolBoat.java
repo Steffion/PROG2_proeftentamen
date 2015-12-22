@@ -6,4 +6,8 @@ public class PatrolBoat extends Ship {
 	public PatrolBoat() {
 		setLength(2);
 	}
+	
+	public char getTypeShip() {
+		return 'P';
+	}
 }

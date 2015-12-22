@@ -1,11 +1,14 @@
 package nl.Steffion.SeaBattle;
 
-public class Ship {
-	private int length;
-	private int hits;
-	
+public abstract class Ship {
+	private int	hits;
+	private int	length;
+
 	public Ship() {
-		hits =0;
+		hits = 0;
+	}
+	
+	public abstract char getTypeShip();
 	}
 	
 	public void setLength(int length) {
