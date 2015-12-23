@@ -14,6 +14,10 @@ public abstract class Ship {
 		return goesHorizontal;
 	}
 	
+	public int getLength() {
+		return length;
+	}
+
 	public abstract char getTypeShip();
 	
 	public boolean hasSank() {
