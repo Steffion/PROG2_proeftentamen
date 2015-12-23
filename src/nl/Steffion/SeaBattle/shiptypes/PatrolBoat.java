@@ -3,7 +3,8 @@ package nl.Steffion.SeaBattle.shiptypes;
 import nl.Steffion.SeaBattle.Ship;
 
 public class PatrolBoat extends Ship {
-	public PatrolBoat() {
+	public PatrolBoat(boolean goesHorizontal) {
+		super(goesHorizontal);
 		setLength(2);
 	}
 	

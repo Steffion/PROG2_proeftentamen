@@ -3,7 +3,8 @@ package nl.Steffion.SeaBattle.shiptypes;
 import nl.Steffion.SeaBattle.Ship;
 
 public class BattleShip  extends Ship {
-	public BattleShip() {
+	public BattleShip(boolean goesHorizontal) {
+		super(goesHorizontal);
 		setLength(4);
 	}
 	
