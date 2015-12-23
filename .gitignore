@@ -92,3 +92,7 @@ local.properties
 
 # TeXlipse plugin
 .texlipse
+
+### Intellij ###
+.idea/
+*.xml #REMOVE THIS AFTER THE COMMIT. INTELLIJ WON'T IGNORE IT FOR SOME REASON
