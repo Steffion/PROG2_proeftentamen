@@ -184,11 +184,15 @@ public class Field {
 			}
 
 			for (Character horizontal = 'A'; horizontal <= 'J'; horizontal++) {
-				String cell = horizontal.toString() + vertical;
+				Square cell = grid.get(horizontal.toString() + vertical);
 
-				if (grid.get(cell).isShot()) {
-					if (grid.get(cell).getShip() != null) {
-						System.out.print(" " + grid.get(cell).getShip().getTypeShip());
+				if (cell.isShot() || cheatPrint) {
+					if (cell.getShip() != null) {
+						if (!cell.getShip().hasSank() && !cheatPrint) {
+							System.out.print(" *");
+						} else {
+							System.out.print(" " + cell.getShip().getTypeShip());
+						}
 					} else {
 						System.out.print(" ~");
 					}
