@@ -14,6 +14,7 @@ public class Field {
 	
 	public Field() {
 		grid = new HashMap<String, Square>();
+
 		for (Character horizontal = 'A'; horizontal <= 'J'; horizontal++) {
 			for (int vertical = 10; vertical >= 0; vertical--) {
 				String cell = horizontal.toString() + vertical;
@@ -41,6 +42,7 @@ public class Field {
 		
 		return false;
 	}
+	
 	public void cheatPrint() {
 		for (int vertical = 10; vertical >= 1; vertical--) {
 			if (vertical == 10) {
@@ -65,6 +67,7 @@ public class Field {
 		System.out.println("   A B C D E F G H I J");
 		System.out.println();
 	}
+	
 	private void drawShipRandomly(Ship ship) {
 		Random random = new Random();
 		Square sqaure;
@@ -124,8 +127,8 @@ public class Field {
 		}
 	}
 	
-	public void fired() {
-		// TODO register fire
+	public HashMap<String, Square> getGrid() {
+		return grid;
 	}
 	
 	private Character intToCharacter(int integer) {
@@ -200,8 +203,12 @@ public class Field {
 			for (Character horizontal = 'A'; horizontal <= 'J'; horizontal++) {
 				String cell = horizontal.toString() + vertical;
 
-				if (grid.get(cell).getShip() != null) {
-					System.out.print(" " + grid.get(cell).getShip().getTypeShip());
+				if (grid.get(cell).isShot()) {
+					if (grid.get(cell).getShip() != null) {
+						System.out.print(" " + grid.get(cell).getShip().getTypeShip());
+					} else {
+						System.out.print(" ~");
+					}
 				} else {
 					System.out.print(" .");
 				}
@@ -211,5 +218,6 @@ public class Field {
 		}
 
 		System.out.println("   A B C D E F G H I J");
+		System.out.println();
 	}
 }
