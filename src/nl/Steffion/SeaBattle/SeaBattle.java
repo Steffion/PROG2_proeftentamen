@@ -143,11 +143,17 @@ public class SeaBattle {
 		}
 		
 		if (player2IsAI) {
+			System.out.println("*** WINNER: " + player1.getName() + " ***");
+			player2.getField().print();
 			finished(player1);
 		} else {
 			if (player1.getField().allShipsSunk()) {
+				System.out.println("*** WINNER: " + player2.getName() + " ***");
+				player1.getField().print();
 				finished(player2);
 			} else {
+				System.out.println("*** WINNER: " + player1.getName() + " ***");
+				player2.getField().print();
 				finished(player1);
 			}
 		}
