@@ -33,39 +33,8 @@ public class Field {
 		return true;
 	}
 	
-	public boolean oneShipSunk() {
-		for (Square square : grid.values()) {
-			if ((square.getShip() != null) && square.getShip().hasSank()) {
-				return true;
-			}
-		}
-		
-		return false;
-	}
-	
 	public void cheatPrint() {
-		for (int vertical = 10; vertical >= 1; vertical--) {
-			if (vertical == 10) {
-				System.out.print(vertical);
-			} else {
-				System.out.print(vertical + " ");
-			}
-
-			for (Character horizontal = 'A'; horizontal <= 'J'; horizontal++) {
-				String cell = horizontal.toString() + vertical;
-
-				if (grid.get(cell).getShip() != null) {
-					System.out.print(" " + grid.get(cell).getShip().getTypeShip());
-				} else {
-					System.out.print(" ~");
-				}
-			}
-
-			System.out.println();
-		}
-
-		System.out.println("   A B C D E F G H I J");
-		System.out.println();
+		print(true);
 	}
 	
 	private void drawShipRandomly(Ship ship) {
@@ -158,6 +127,16 @@ public class Field {
 		}
 	}
 	
+	public boolean oneShipSunk() {
+		for (Square square : grid.values()) {
+			if ((square.getShip() != null) && square.getShip().hasSank()) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
 	public void placeShipsRandomly() {
 		Random random = new Random();
 
@@ -191,8 +170,12 @@ public class Field {
 		PatrolBoat patrolBoat = new PatrolBoat(random.nextBoolean());
 		drawShipRandomly(patrolBoat);
 	}
-	
+
 	public void print() {
+		print(false);
+	}
+
+	public void print(boolean cheatPrint) {
 		for (int vertical = 10; vertical >= 1; vertical--) {
 			if (vertical == 10) {
 				System.out.print(vertical);
