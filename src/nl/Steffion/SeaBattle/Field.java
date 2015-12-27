@@ -32,6 +32,15 @@ public class Field {
 		return true;
 	}
 	
+	public boolean oneShipSunk() {
+		for (Square square : grid.values()) {
+			if ((square.getShip() != null) && square.getShip().hasSank()) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
 	private void drawShipRandomly(Ship ship) {
 		Random random = new Random();
 		Square sqaure;
