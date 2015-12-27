@@ -41,6 +41,30 @@ public class Field {
 		
 		return false;
 	}
+	public void cheatPrint() {
+		for (int vertical = 10; vertical >= 1; vertical--) {
+			if (vertical == 10) {
+				System.out.print(vertical);
+			} else {
+				System.out.print(vertical + " ");
+			}
+
+			for (Character horizontal = 'A'; horizontal <= 'J'; horizontal++) {
+				String cell = horizontal.toString() + vertical;
+
+				if (grid.get(cell).getShip() != null) {
+					System.out.print(" " + grid.get(cell).getShip().getTypeShip());
+				} else {
+					System.out.print(" ~");
+				}
+			}
+
+			System.out.println();
+		}
+
+		System.out.println("   A B C D E F G H I J");
+		System.out.println();
+	}
 	private void drawShipRandomly(Ship ship) {
 		Random random = new Random();
 		Square sqaure;
